@@ -649,7 +649,7 @@ const sampleListings = [
 
 //camping
 {
-  title: "Forest c Site",
+  title: "Forest Site",
   description: "Camp under stars.",
   image:{ filename:"listingimage", url:"https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   price: 500,
@@ -658,7 +658,7 @@ const sampleListings = [
   category: "camping"
 },
 {
-  title: "Mountain c Tent",
+  title: "Mountain Tent",
   description: "High-altitude camping.",
   image:{ filename:"listingimage", url:"https://images.unsplash.com/photo-1631740694353-af5472ec96d2?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   price: 600,
@@ -667,7 +667,7 @@ const sampleListings = [
   category: "camping"
 },
 {
-  title: "Lakeside c",
+  title: "Lakeside ",
   description: "Tent near calm lake.",
   image:{ filename:"listingimage", url:"https://images.unsplash.com/photo-1602391833977-358a52198938?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   price: 700,

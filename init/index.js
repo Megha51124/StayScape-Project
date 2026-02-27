@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
 const initdata = require("./data.js");
 const Listing = require("../models/listing.js");
+require("dotenv").config();
+
+const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
+
 
 
 main()
 .then(()=>{
-    console.log("DB Connected Successfully");
+    console.log("DB Connected Successfully for Seeding");
 })
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+  await mongoose.connect( dbUrl);
 }
 
 const initDB = async () => {
