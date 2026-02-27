@@ -10,11 +10,12 @@ const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
 main()
 .then(()=>{
     console.log("DB Connected Successfully for Seeding");
+    console.log("Connected to:", dbUrl);
 })
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect( dbUrl);
+  await mongoose.connect(dbUrl);
 }
 
 const initDB = async () => {
