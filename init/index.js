@@ -1,14 +1,13 @@
-const mongoose = require('mongoose');
-const initdata = require("./data.js");
-const Listing = require("../models/listing.js");
 const path = require("path");
 require("dotenv").config({
   path: path.resolve(__dirname, "../.env"),
 });
+const mongoose = require('mongoose');
+const initdata = require("./data.js");
+const Listing = require("../models/listing.js");
 
 
 const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
-
 
 
 main()
