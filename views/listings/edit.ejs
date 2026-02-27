@@ -1,0 +1,77 @@
+  <% layout('/layouts/boilerplate') -%>
+  <div class="row mt-3">
+  <div class="col-8 offset-2">
+     <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation"  enctype="multipart/form-data">
+        <h3>Edit Listing</h3>
+        <div class="mb-3">
+        <label for="Title" class="form-label">Title</label>
+       <input name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+        <div class="valid-feedback">
+      Title Looks good!
+    </div>
+       </div>
+
+       <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" class="form-control" required><%= listing.description %> </textarea>
+           <div class="invalid-feedback">
+     Please Enter Short Description
+    </div>
+    </div>
+
+    <div class="mb-3">
+  <label class="form-label">Category</label>
+
+  <select name="listing[category]" class="form-select" required>
+    <option value="rooms" <%= listing.category === "rooms" ? "selected" : "" %>>Rooms</option>
+    <option value="iconic cities" <%= listing.category === "iconic cities" ? "selected" : "" %>>Iconic Cities</option>
+    <option value="mountains" <%= listing.category === "mountains" ? "selected" : "" %>>Mountains</option>
+    <option value="castles" <%= listing.category === "castles" ? "selected" : "" %>>Castles</option>
+    <option value="camping" <%= listing.category === "camping" ? "selected" : "" %>>Camping</option>
+    <option value="farms" <%= listing.category === "farms" ? "selected" : "" %>>Farms</option>
+    <option value="boats" <%= listing.category === "boats" ? "selected" : "" %>>Boats</option>
+    <option value="domes" <%= listing.category === "domes" ? "selected" : "" %>>Domes</option>
+    <option value="amazing pools" <%= listing.category === "amazing pools" ? "selected" : "" %>>Amazing Pools</option>
+    <option value="artic" <%= listing.category === "artic" ? "selected" : "" %>>Artic</option>
+  </select>
+</div>
+    
+<div class="mb-3">
+  <label for="image" class="form-label">Original Listing Image</label><br>
+
+  <div class="image-preview">
+    <img src="<%= listing.image.url %>" class="preview-img" alt="Original listing image">
+  </div>
+</div>
+
+  
+       <div class="row">
+       <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label>
+       <input name="listing[price]" value="<%= listing.price %>"  class="form-control" required/>
+       <div class="invalid-feedback">
+       Price should be valid
+    </div>
+       </div>
+
+       <div class="mb-3 col-md-4">
+        <label for="country" class="form-label">Country </label>
+       <input name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+       <div class="invalid-feedback">
+       Country should be valid
+    </div>
+       </div>
+       </div>
+      
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+       <input name="listing[location]" value="<%= listing.location %>" class="form-control" required>
+       <div class="invalid-feedback">
+       Location should be valid
+    </div>
+      </div>
+
+       <button class="btn btn-dark edit-btn mt-2 mb-4">Edit</button>
+    </form>
+    </div>
+    </div>

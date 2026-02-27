@@ -1,0 +1,25 @@
+ <% layout('/layouts/boilerplate') -%>
+    <div class="auth-container">
+  <div class="auth-card">
+    <h1>Login on WanderLust</h1>
+
+    <form action="/login" method="POST" novalidate   class = "needs-validation">
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username"class="form-control"  required />
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" name="password" required />
+      </div>
+
+      <button class="auth-btn">Login</button>
+    </form>
+
+    <p class="auth-footer">
+      Don’t have an account?
+      <a href="/signup">Sign up</a>
+    </p>
+  </div>
+</div>

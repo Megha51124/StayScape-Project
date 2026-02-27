@@ -1,0 +1,140 @@
+<% layout('/layouts/boilerplate') -%>
+
+  <% if (!searchQuery) { %>
+    <div id="filters">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <a href="/listings" class="category-item <%= !category ? 'active' : '' %>">
+          Trending
+        </a>
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <a href="/listings?category=rooms" class="category-item <%= category === 'rooms' ? 'active' : '' %>">Rooms</a>
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain-city"></i></div>
+        <a href="/listings?category=iconic cities"
+          class="category-item <%= category === 'iconic cities' ? 'active' : '' %>">Iconic Cities</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <a href="/listings?category=mountains"
+          class="category-item <%= category === 'mountains' ? 'active' : '' %>">Mountains</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <a href="/listings?category=castles"
+          class="category-item <%= category === 'castles' ? 'active' : '' %>">Castles</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <a href="/listings?category=amazing pools"
+          class="category-item <%= category === 'amazing pools' ? 'active' : '' %>">Amazing Pools</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <a href="/listings?category=camping"
+          class="category-item <%= category === 'camping' ? 'active' : '' %>">Camping</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-cow"></i></i></div>
+        <a href="/listings?category=farms" class="category-item <%= category === 'farms' ? 'active' : '' %>">Farms</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-regular fa-snowflake"></i></i></div>
+        <a href="/listings?category=artic" class="category-item <%= category === 'artic' ? 'active' : '' %>">Arctic</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-igloo"></i></div>
+        <a href="/listings?category=domes" class="category-item <%= category === 'domes' ? 'active' : '' %>">Domes</a>
+
+      </div>
+
+      <div class="filter">
+        <div><i class="fa-solid fa-ship"></i></div>
+        <a href="/listings?category=boats" class="category-item <%= category === 'boats' ? 'active' : '' %>">Boats</a>
+
+      </div>
+      <div class="tax-toggle ">
+        <div class="form-check-reverse form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+          <label class="form-check-label" for="switchCheckDefault">
+            Display total after taxes
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <% } %>
+
+      <% if(searchQuery){ %>
+        <h4 class="mt-3 mb-4">Search results for "<%= searchQuery %>"</h4>
+        <% } %>
+
+          <% if (!searchQuery) { %>
+            <h3 class="mt-4 mb-3">Explore beautifull stays!</h3>
+            <% } %>
+
+            
+                
+              <div class="listing-grid">
+                <% for(let listing of allListings){ %>
+                  <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="listingIndex-card">
+
+                      <div class="img-wrapper ">
+                        <img src="<%= listing.image.url %>" alt="listing image" />
+                        <span class="badge">
+                          <%= listing.category %>
+                        </span>
+
+      
+                        
+
+<form action="/wishlist/<%= listing._id %>" method="POST" class="wishlist-form">
+  <button type="submit" class="heart-btn">
+    <i class="fa-heart 
+      <%= currUser && currUser.wishlist.some(id => id.toString() === listing._id.toString())
+        ? 'fa-solid'
+        : 'fa-regular' %>">
+    </i>
+  </button>
+</form>
+
+
+                    
+                      </div>
+
+                      <div class="listingIndex-info">
+                        <div class="title ">
+                          <%= listing.title %>
+                        </div>
+                        <div class="price">
+                          ₹<%= listing.price.toLocaleString("en-IN") %> for 2 nights
+                        </div>
+                        <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+                      </div>
+
+                    </div>
+                  </a>
+                <% } %>
+              </div>
+
+              </div>

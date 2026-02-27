@@ -1,0 +1,41 @@
+ <% layout('/layouts/boilerplate') -%>
+
+
+<div class="profile-page">
+  <h1>Profile</h1>
+
+  <div class="profile-card">
+
+ 
+    <div class="profile-header">
+
+      <div class="profile-avatar-large">
+        <%= user.email[0].toUpperCase() %>
+      </div>
+
+      <div class="profile-user-info">
+        <h2 class="username">
+        <%= user.username %>
+        </h2>
+        <p class="email">
+            <%= user.email %>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- PROFILE ACTIONS -->
+    <div class="profile-actions">
+
+      <a href="/wishlist" class="profile-item">
+        ❤️ Wishlist
+      </a>
+
+      <form action="/logout" method="GET" class="profile-item">
+        <button type="submit">🚪 Logout</button>
+      </form>
+
+    </div>
+
+  </div>
+</div>

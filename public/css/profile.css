@@ -1,0 +1,106 @@
+
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:rgb(83, 83, 81);
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.profile-avatar-link{
+    text-decoration: none;
+}
+
+
+
+.profile-page {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.profile-card {
+  background: #f7f7f7;
+  border-radius: 24px;
+  padding: 3rem;
+  margin-top: 2rem;
+}
+
+.profile-avatar-large {
+  width: 60px;
+  height: 60px;
+  background: #222;
+  color: white;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;  
+  gap: 50px;             
+  margin-bottom: 24px;
+
+  
+}
+
+.profile-user-info {
+  display: flex;
+  flex-direction: column; 
+}
+
+.username {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.email {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-item {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-item button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-item:hover {
+  background: #efefef;
+}

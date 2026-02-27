@@ -1,0 +1,204 @@
+/* .show-img{
+    height:30vh;
+}
+
+.btns{
+    display: flex;
+    margin-top: 12px;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.listing-card{
+ border: none;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #f7f7f7;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+} */
+
+
+.show-wrapper {
+  max-width: 900px;
+  margin: auto;
+  /* padding-bottom: 4rem; */
+}
+
+.hero-section img {
+  width: 100%;
+  height: 40vh;       
+  max-height: 380px;
+  min-height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  margin-top: 16px;
+}
+
+
+.listing-title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.listing-location {
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;     
+}       
+
+.btns .btn {
+  min-width: 90px;           
+  padding: 8px 16px;
+}
+
+
+/* META */
+.listing-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.category-pill {
+  background: #f1f3f5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.price-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+
+.host-text {
+  margin-top: 10px;
+  color: #555;
+}
+
+
+.listing-description {
+  margin-top: 1rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+
+.owner-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.owner-actions a,
+.owner-actions button {
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.soft-divider {
+  border: none;
+  height: 1px;
+  background: #e9ecef;
+}
+
+.review-form textarea {
+  width: 70%;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  /* margin-top: 4px; */
+  margin-left: 90px;
+
+}
+
+.review-form h3{
+   margin-left: 100px;
+}
+
+.review-btn {
+  margin-top: 12px;
+  background: #fe424d;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: 84px;
+  margin-right: auto;
+
+ 
+}
+
+.review-btn:hover{
+  background-color: #6c757d;
+}
+
+
+.single-review {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.starability-slot{
+   margin-left: 95px;
+   margin-top: 4px;
+}
+
+.ratingText{
+   margin-left: 100px;
+}
+
+.reviews h3{
+   margin-left: 90px;
+   margin-top: 4px;
+}
+
+.delete-review {
+  background: none;
+  border: none;
+  color: #fe424d;
+  font-size: 0.8rem;
+}
+
+.delete-review:hover{
+    background-color: #fe424d;
+}
+
+.add-btn,.edit-btn,.delete-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.add-btn,.edit-btn,.delete-btn:hover{
+  background-color: #6c757d;
+}
