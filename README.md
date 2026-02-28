@@ -76,5 +76,13 @@ Cloudinary is integrated to store and manage uploaded images efficiently.<br>
 
 <br>
 
-
+<br>
+📌Architecture Diagram
+<img src="mermaid-diagram.png" alt="Application Architecture Diagram" width="700"/>
+<br>
+<br>
+<br>
+<br>
+📌For Authentication Flow Diagram
+<img src="auth image.png" alt="Authentication Flow Diagram" width="700"/>
 
