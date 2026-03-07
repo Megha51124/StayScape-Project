@@ -1,0 +1,38 @@
+<% layout('/layouts/boilerplate') -%>
+<form method="post" action="/listings/<%= listing._id %>/bookings">
+ 
+  <label>Check-In</label>
+  <input
+    placeholder="Input Check-In Date"
+    type="date"
+    id="checkIn"
+    name="booking[checkIn]"
+    required
+  />
+  <label>Check-Out</label>
+  <input
+    placeholder="Input Check-In Date"
+    type="date"
+    id="checkOut"
+    name="booking[checkOut]"
+    required
+  />
+  <button type="submit">Confirm Booking</button>
+
+
+  <script >
+            const bookedRanges = <%- JSON.stringify(bookedRanges) %>;
+
+    flatpickr("#checkIn", {
+      minDate: "today",
+      disable: bookedRanges,
+      dateFormat: "Y-m-d"
+    });
+
+     flatpickr("#checkOut", {
+    minDate: "today",
+    disable: bookedRanges,
+    dateFormat: "Y-m-d"
+  });
+  </script>
+</form>

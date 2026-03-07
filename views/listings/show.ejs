@@ -32,6 +32,13 @@
             <p class="listing-description">
                 <%= listing.description %>
             </p>
+            
+  <!-- Book  -->
+          <% if (currUser && listing.owner._id.equals(currUser._id) === false) { %>
+  <a href="/listings/<%= listing._id %>/bookings/new">
+    <button>Book Now</button>
+  </a>
+<% } %>
 
             <% if(currUser && currUser._id.equals(listing.owner._id)){%>
                 <div class="btns">
@@ -43,6 +50,8 @@
                 </form>
     </div>
     <%}%>
+
+
 
         <hr class="soft-divider" />
 

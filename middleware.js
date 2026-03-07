@@ -1,5 +1,6 @@
 const Listing = require("./models/listing.js");
 const Review = require("./models/review.js");
+const Booking = require("./models/booking.js");
 const ExpressError = require("./utils/ExpressError.js");
 const {listingSchema} = require("./schema.js");
 const {reviewSchema} = require("./schema.js");
@@ -63,12 +64,24 @@ module.exports.isOwner =async (req,res,next)=>{
    next();
 }
 
+
 module.exports.isReviewAuthor = async(req,res,next)=>{
    let {id, reviewId } = req.params;
     let review = await Review.findById(reviewId);
   if(!review.author.equals(res.locals.currUser._id)){
     req.flash("error","You are not the owner of the review!");
    return res.redirect(`/listings/${id}`);
+  }
+   next();
+}
+
+
+module.exports.isBookingOwner =async (req,res,next)=>{
+   let { bookingId } = req.params;
+    let booking = await Booking.findById(bookingId);
+  if(!booking.user.equals(req.user._id)){
+    req.flash("error","You are not the owner of the booking");
+   return res.redirect(`/bookings/my-bookings`);
   }
    next();
 }
