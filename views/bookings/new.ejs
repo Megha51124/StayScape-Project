@@ -1,38 +1,104 @@
+
 <% layout('/layouts/boilerplate') -%>
-<form method="post" action="/listings/<%= listing._id %>/bookings">
- 
-  <label>Check-In</label>
-  <input
-    placeholder="Input Check-In Date"
-    type="date"
-    id="checkIn"
-    name="booking[checkIn]"
-    required
-  />
-  <label>Check-Out</label>
-  <input
-    placeholder="Input Check-In Date"
-    type="date"
-    id="checkOut"
-    name="booking[checkOut]"
-    required
-  />
-  <button type="submit">Confirm Booking</button>
 
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-  <script >
-            const bookedRanges = <%- JSON.stringify(bookedRanges) %>;
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
 
-    flatpickr("#checkIn", {
-      minDate: "today",
-      disable: bookedRanges,
-      dateFormat: "Y-m-d"
-    });
+          <!-- Listing Info -->
+          <h4 class="fw-bold mb-1"><%= listing.title %></h4>
+          <p class="text-muted mb-4">₹<%= listing.price %> / night</p>
 
-     flatpickr("#checkOut", {
+          <form method="POST" action="/listings/<%= listing._id %>/bookings">
+
+            <div class="row g-3 mb-3">
+              <!-- Check-In -->
+              <div class="col-6">
+                <label class="form-label fw-semibold">Check-In</label>
+                <input
+                  type="date"
+                  id="checkIn"
+                  name="booking[checkIn]"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Check-Out -->
+              <div class="col-6">
+                <label class="form-label fw-semibold">Check-Out</label>
+                <input
+                  type="date"
+                  id="checkOut"
+                  name="booking[checkOut]"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Price Summary -->
+            <div id="priceSummary" class="alert alert-light border mb-3 d-none">
+              <span id="summaryText"></span>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100 rounded-3">
+              Confirm Booking
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Back link -->
+      <div class="text-center mt-3">
+        <a href="/listings/<%= listing._id %>" class="text-muted small">
+          ← Back to listing
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+    // eslint-disable-next-line
+  const bookedRanges = <%- JSON.stringify(bookedRanges) %>;
+  const pricePerNight = <%= listing.price %>;
+
+  const checkOutPicker = flatpickr("#checkOut", {
     minDate: "today",
     disable: bookedRanges,
-    dateFormat: "Y-m-d"
+    dateFormat: "Y-m-d",
+    onChange: function(selectedDates) {
+      updateSummary();
+    }
   });
-  </script>
-</form>
+
+  flatpickr("#checkIn", {
+    minDate: "today",
+    disable: bookedRanges,
+    dateFormat: "Y-m-d",
+    onChange: function(selectedDates) {
+      checkOutPicker.set("minDate", selectedDates[0]);
+      updateSummary();
+    }
+  });
+
+  function updateSummary() {
+    const checkIn  = document.getElementById("checkIn").value;
+    const checkOut = document.getElementById("checkOut").value;
+
+    if (checkIn && checkOut) {
+      const nights = (new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24);
+      const total  = nights * pricePerNight;
+
+      document.getElementById("summaryText").innerHTML =
+        `<strong>${nights} night${nights > 1 ? "s" : ""}</strong> × ₹${pricePerNight} = <strong>₹${total}</strong>`;
+      document.getElementById("priceSummary").classList.remove("d-none");
+    }
+  }
+</script>
