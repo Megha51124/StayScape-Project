@@ -36,7 +36,7 @@
   <!-- Book  -->
           <% if (currUser && listing.owner._id.equals(currUser._id) === false) { %>
   <a href="/listings/<%= listing._id %>/bookings/new">
-    <button>Book Now</button>
+    <button class="btn btn-danger w-90 rounded-3">Book Now</button>
   </a>
 <% } %>
 
